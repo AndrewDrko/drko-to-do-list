@@ -1,0 +1,309 @@
+/* FONT */
+@font-face {
+  font-family: "Kalam";
+  src: url("./assets/fonts/Kalam-Regular.ttf") format("truetype");
+}
+/* COLORS */
+/* #2B2D42 #8d99ae #EDF2F4 #EF233C #D90429  */
+
+/* GENERAL CONFIG */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Kalam", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #edf2f4;
+  background-color: #edf2f4;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: none;
+  font-size: 1.8rem;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 1.2rem 1.8rem;
+  border-radius: 9px;
+  background-color: #2b2d42;
+  color: #edf2f4;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.num-indicator {
+  display: flex;
+  justify-content: center;
+  color: #edf2f4;
+  border-radius: 50%;
+  padding: 1rem;
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid 2px #c20020;
+
+  font-size: 4.8rem;
+  background-color: #d90429;
+  width: auto;
+  height: 10rem;
+  user-select: none;
+}
+
+/* ASIDE */
+.aside {
+  background-color: #2b2d42;
+  padding: 2rem 3rem;
+}
+
+.task-group-list {
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+
+  flex-direction: column;
+  padding: 3rem 0;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.task-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 3.2rem;
+  padding: 0 3rem;
+  border-radius: 9px;
+  width: 100%;
+  height: 7rem;
+  cursor: pointer;
+}
+
+.task-group:hover {
+  background-color: #1c1d2c;
+  color: inherit;
+}
+
+.selected {
+  color: #2b2d42;
+  background-color: #8d99ae;
+}
+
+.selected .num-indicator {
+  background-color: #1c1d2c;
+}
+
+/* MAIN */
+
+.main {
+  position: relative;
+  font-size: 2.4rem;
+  color: #1c1d2c;
+  padding: 3rem 4rem;
+  overflow: hidden;
+}
+
+.headings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.main h1 {
+  font-size: 3.2rem;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  height: 65vh;
+  overflow-y: auto;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  padding: 1.1rem 2rem;
+  gap: 1.4rem;
+  background-color: #8d99ae;
+  color: #edf2f4;
+  width: 100%;
+  border-radius: 9px;
+  box-shadow: 10px 9px 17px -9px rgba(0, 0, 0, 0.35);
+}
+
+.task:hover {
+  background-color: #9fa9b9;
+  cursor: pointer;
+}
+
+.task-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 1.5rem;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.task-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.task-title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #1c1d2c;
+}
+
+.check-button {
+  background-color: inherit;
+  padding: 0;
+}
+
+.check-button svg {
+  width: 5.4rem;
+  height: 5.4rem;
+  fill: #edf2f4;
+}
+
+.completed-selector {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.8rem;
+  background-color: #c20020;
+  width: 25rem;
+  color: #edf2f4;
+  border-radius: 9px;
+}
+
+.completed-selector:hover {
+  background-color: rgb(228, 0, 38);
+}
+
+.selector-content {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.selector-content svg {
+  transition: 0.2s all;
+}
+.selector-content svg.open {
+  transform: rotate(-90deg);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.616); /* Fondo oscuro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #2b2d42;
+  box-shadow: 10px 9px 17px -9px rgba(0, 0, 0, 0.35);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 2.4rem;
+  padding: 1rem 2rem;
+  font-size: 2.4rem;
+}
+
+.form-buttons {
+  grid-column: 2/-1;
+  display: flex;
+  justify-self: center;
+  gap: 1.8rem;
+}
+
+input,
+select {
+  font-size: 2.4rem;
+  font-family: inherit;
+  border-radius: 6px;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  background-color: #edf2f4;
+  height: 4rem;
+}
+
+button svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  font-size: 4.8rem;
+  margin: auto 0;
+}
+
+.dark {
+  color: #1c1d2c;
+}
+
+.light {
+  color: #edf2f4;
+}
+
+.message svg {
+  width: 6rem;
+  height: 6rem;
+}
+
+.Toastify__toast-container--top-left {
+  font-size: 2.8rem;
+}
