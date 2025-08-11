@@ -79,7 +79,12 @@ export function Main({
       </div>
 
       <Button
-        style={{ position: "absolute", bottom: "2rem", right: "3rem" }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          width: "17rem",
+          alignSelf: "flex-end",
+        }}
         onClick={() => onShowModal()}
       >
         <IoMdAdd /> Nueva Tarea
