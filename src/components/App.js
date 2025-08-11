@@ -1,4 +1,5 @@
 import "../index.css";
+import "../queries.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 import { Header } from "./Header";
@@ -39,8 +40,10 @@ function App() {
     const updatedTasks = tasks.filter((task) => {
       const data = task.id !== id;
       saveData(data);
+      if (data.length === 0 || !data) setSelectedDate("all");
       return data;
     });
+
     setTasks(updatedTasks);
     saveData(updatedTasks);
   }

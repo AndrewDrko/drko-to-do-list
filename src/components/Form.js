@@ -19,6 +19,7 @@ export function Form({ onCreateTask, onShowModal, onShowToast }) {
       date: new Date(date).toISOString().split("T")[0],
       priority,
       completed: false,
+      created: new Date(),
     };
 
     onCreateTask(newTask);

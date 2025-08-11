@@ -13,6 +13,7 @@ export function TaskList({ tasks, onCompleteStatus, onDeleteTask }) {
           title={task.task}
           priority={task.priority}
           completed={task.completed}
+          date={task.date}
           key={task.id}
           onCompleteStatus={onCompleteStatus}
           onDeleteTask={onDeleteTask}

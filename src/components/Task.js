@@ -12,6 +12,7 @@ export function Task({
   title,
   priority,
   completed,
+  date,
   onCompleteStatus,
   onDeleteTask,
 }) {
@@ -40,6 +41,7 @@ export function Task({
           {priority === "low" && <span>🟢 Baja Prioridad</span>}
           {priority === "medium" && <span>🟠 Media Prioridad</span>}
           {priority === "high" && <span>🔴 Alta Prioridad</span>}
+          <span className="task-date">{date}</span>
         </div>
       </li>
       <Button
